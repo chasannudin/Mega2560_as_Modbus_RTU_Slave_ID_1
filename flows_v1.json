@@ -1,0 +1,2795 @@
+[
+    {
+        "id": "1dcdc176874f417c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "flow_modbus_dashboard2",
+        "type": "tab",
+        "label": "Modbus ke Dashboard 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "flow_modbus_write_rtc",
+        "type": "tab",
+        "label": "Modbus Write RTC (Dashboard 2)",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "06c6a39e17dcf910",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "mqtt_broker_local",
+        "type": "mqtt-broker",
+        "name": "Local Mosquitto",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "fa3e1098df5dc1e3",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "xp_theme",
+        "type": "ui-theme",
+        "name": "XP Dark Mode Graph",
+        "colors": {
+            "surface": "#1e1e1e",
+            "primary": "#00ff00",
+            "bgPage": "#d4d0c8",
+            "groupBg": "#d4d0c8",
+            "groupBorder": "#808080",
+            "text": "#000000"
+        }
+    },
+    {
+        "id": "sys_monitor_tab",
+        "type": "ui-page",
+        "name": "Task Manager",
+        "ui": "fa3e1098df5dc1e3",
+        "path": "/Task Manager",
+        "icon": "",
+        "layout": "grid",
+        "theme": "xp_theme",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "group_activity",
+        "type": "ui-group",
+        "name": "Aktifitas Sistem (Real-time)",
+        "page": "sys_monitor_tab",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "group_disk",
+        "type": "ui-group",
+        "name": "Kapasitas & Status Hardisk",
+        "page": "sys_monitor_tab",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "className": ""
+    },
+    {
+        "id": "ebe2e3288ecf8a55",
+        "type": "ui-spacer",
+        "group": "group_activity",
+        "name": "spacer",
+        "order": 6,
+        "width": 1,
+        "height": 1,
+        "className": ""
+    },
+    {
+        "id": "modbus_client_config",
+        "type": "modbus-client",
+        "name": "Modbus RTU Arduino (Slave 1)",
+        "clienttype": "serial",
+        "bufferCommands": false,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": false,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyACM0",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "500",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": "",
+        "commandDelay": "",
+        "clientTimeout": "",
+        "reconnectOnTimeout": false,
+        "reconnectTimeout": 5000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "ui_theme_config",
+        "type": "ui-theme",
+        "name": "Tema Standar",
+        "colors": {
+            "primary": "#007bff",
+            "accent": "#6c757d",
+            "bgPage": "#f8f9fa",
+            "bgContainer": "#ffffff",
+            "text": "#212529"
+        }
+    },
+    {
+        "id": "ui_page_modbus",
+        "type": "ui-page",
+        "name": "Monitoring Modbus",
+        "ui": "fa3e1098df5dc1e3",
+        "path": "/monitoring",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "ui_theme_config",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 2,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "ui_group_rtc",
+        "type": "ui-group",
+        "name": "Data RTC Arduino",
+        "page": "ui_page_modbus",
+        "width": "6",
+        "height": "1",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "ui_group_write_rtc",
+        "type": "ui-group",
+        "name": "Setting RTC Arduino",
+        "page": "ui_page_modbus",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": ""
+    },
+    {
+        "id": "mqtt_in_sys",
+        "type": "mqtt in",
+        "z": "1dcdc176874f417c",
+        "name": "MQTT Subscriber",
+        "topic": "v1/system/telemetry",
+        "qos": "0",
+        "datatype": "json",
+        "broker": "mqtt_broker_local",
+        "nl": 0,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 340,
+        "wires": [
+            [
+                "1343dac3da5a810d",
+                "293b8ddb97af47f2",
+                "66a2cafa135da0b1",
+                "e7567e87f2a66a56",
+                "775655f1314f751d",
+                "7afe9a5d32d88eac",
+                "d2a237321ef54b5f",
+                "2fb2765b36712a7a",
+                "3bc27b247b8e2e55",
+                "a279525dc4d4f4db"
+            ]
+        ]
+    },
+    {
+        "id": "chart_cpu",
+        "type": "ui-chart",
+        "z": "1dcdc176874f417c",
+        "group": "group_activity",
+        "name": "Aktifitas CPU",
+        "label": "Aktifitas CPU (%)",
+        "order": 1,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "HH:mm:ss",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#00ff00",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 4,
+        "className": "",
+        "interpolation": "linear",
+        "x": 670,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "chart_ram",
+        "type": "ui-chart",
+        "z": "1dcdc176874f417c",
+        "group": "group_activity",
+        "name": "Aktifitas RAM",
+        "label": "Aktifitas RAM (%)",
+        "order": 2,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "HH:mm:ss",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#00dfff",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 4,
+        "className": "",
+        "interpolation": "linear",
+        "x": 670,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "chart_disk_io",
+        "type": "ui-chart",
+        "z": "1dcdc176874f417c",
+        "group": "group_activity",
+        "name": "disk_read_mbps",
+        "label": "disk_read_mbps",
+        "order": 3,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "HH:mm:ss",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ffcc00",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 4,
+        "className": "",
+        "interpolation": "linear",
+        "x": 680,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "chart_net_io",
+        "type": "ui-chart",
+        "z": "1dcdc176874f417c",
+        "group": "group_activity",
+        "name": "network_download_mbps",
+        "label": "network_download_mbps",
+        "order": 4,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "HH:mm:ss",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ff5733",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 4,
+        "className": "",
+        "interpolation": "linear",
+        "x": 730,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "txt_total",
+        "type": "ui-text",
+        "z": "1dcdc176874f417c",
+        "group": "group_disk",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "disk_total_gb",
+        "label": "💾 Kapasitas Total:",
+        "format": "{{msg.payload}} GB",
+        "layout": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "txt_used",
+        "type": "ui-text",
+        "z": "1dcdc176874f417c",
+        "group": "group_disk",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "disk_used_gb",
+        "label": "🔴 Kapasitas Terpakai:",
+        "format": "{{msg.payload}} GB",
+        "layout": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 670,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "txt_free",
+        "type": "ui-text",
+        "z": "1dcdc176874f417c",
+        "group": "group_disk",
+        "order": 3,
+        "width": 6,
+        "height": 1,
+        "name": "disk_free_gb",
+        "label": "🟢 Kapasitas Kosong:",
+        "format": "{{msg.payload}} GB",
+        "layout": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "chart_disk_pie",
+        "type": "ui-chart",
+        "z": "1dcdc176874f417c",
+        "group": "group_disk",
+        "name": "network_upload_mbps",
+        "label": "network_upload_mbps",
+        "order": 4,
+        "chartType": "donut",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ff2929",
+            "#00ff00",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 4,
+        "className": "",
+        "interpolation": "linear",
+        "x": 690,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1343dac3da5a810d",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "Parse CPU",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.cpu_usage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 160,
+        "wires": [
+            [
+                "chart_cpu"
+            ]
+        ]
+    },
+    {
+        "id": "293b8ddb97af47f2",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "Parse RAM",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.ram_used_mb",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "chart_ram"
+            ]
+        ]
+    },
+    {
+        "id": "588bf1e637ae0381",
+        "type": "ui-chart",
+        "z": "1dcdc176874f417c",
+        "group": "group_activity",
+        "name": "CPU Temperature",
+        "label": "Cpu Temperature (C)",
+        "order": 5,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "HH:mm:ss",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "",
+        "yAxisPropertyType": "property",
+        "ymin": "",
+        "ymax": "",
+        "bins": "",
+        "stackSeries": false,
+        "pointRadius": "",
+        "showLegend": true,
+        "removeOlder": "5",
+        "removeOlderUnit": "60",
+        "removeOlderPoints": "",
+        "colors": [
+            "#ff5733",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000",
+            "#000000"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 4,
+        "className": "",
+        "interpolation": "linear",
+        "x": 670,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "66a2cafa135da0b1",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "CPU Temp",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.cpu_temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 340,
+        "wires": [
+            [
+                "588bf1e637ae0381"
+            ]
+        ]
+    },
+    {
+        "id": "e7567e87f2a66a56",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "disk_read_mbps",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.disk_read_mbps",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "chart_disk_io"
+            ]
+        ]
+    },
+    {
+        "id": "775655f1314f751d",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "network_download_mbps",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.network_download_mbps",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 470,
+        "y": 280,
+        "wires": [
+            [
+                "chart_net_io"
+            ]
+        ]
+    },
+    {
+        "id": "7afe9a5d32d88eac",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "disk_total_gb",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.disk_total_gb",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 400,
+        "wires": [
+            [
+                "txt_total"
+            ]
+        ]
+    },
+    {
+        "id": "d2a237321ef54b5f",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "disk_used_gb",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.disk_used_gb",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 440,
+        "wires": [
+            [
+                "txt_used"
+            ]
+        ]
+    },
+    {
+        "id": "2fb2765b36712a7a",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "disk_free_gb",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.disk_free_gb",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "txt_free"
+            ]
+        ]
+    },
+    {
+        "id": "3bc27b247b8e2e55",
+        "type": "change",
+        "z": "1dcdc176874f417c",
+        "name": "network_upload_mbps",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.network_upload_mbps",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 460,
+        "y": 540,
+        "wires": [
+            [
+                "chart_disk_pie"
+            ]
+        ]
+    },
+    {
+        "id": "a279525dc4d4f4db",
+        "type": "debug",
+        "z": "1dcdc176874f417c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 450,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "node_modbus_read_3x_db",
+        "type": "modbus-read",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "name": "Baca Register 3X (11-18)_",
+        "topic": "",
+        "showStatusActivities": true,
+        "logIOActivities": false,
+        "showErrors": true,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "InputRegister",
+        "adr": "10",
+        "quantity": "8",
+        "rate": "2",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "modbus_client_config",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "node_func_parser",
+                "541369fb60170b56"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "node_func_parser",
+        "type": "function",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "name": "Format Data RTC & Suhu",
+        "func": "// Mengambil data array dari Modbus\nvar data = msg.payload;\n\n// Pastikan data berupa array dan memiliki minimal 8 elemen\nif (Array.isArray(data) && data.length >= 8) {\n    var tahun   = data[0];\n    var bulan   = data[1];\n    var tanggal = data[2];\n    var dow     = data[3];\n    var jam     = data[4];\n    var menit   = data[5];\n    var detik   = data[6];\n    var suhu    = data[7];\n\n    // Fungsi helper untuk menambahkan angka 0 di depan (misal: 5 menjadi 05)\n    function pad(num) {\n        return (num < 10 ? '0' : '') + num;\n    }\n\n    // Format teks Jam dan Tanggal\n    var teksJam = pad(jam) + \":\" + pad(menit) + \":\" + pad(detik);\n    var teksTanggal = pad(tanggal) + \"/\" + pad(bulan) + \"/20\" + pad(tahun);\n\n    // Kirim ke output masing-masing node UI\n    return [\n        { payload: teksJam },     // Output 1: Ke UI Jam\n        { payload: teksTanggal }, // Output 2: Ke UI Tanggal\n        { payload: suhu + \" °C\" }  // Output 3: Ke UI Suhu\n    ];\n}\nreturn null;",
+        "outputs": 3,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "ui_text_jam"
+            ],
+            [
+                "ui_text_tanggal"
+            ],
+            [
+                "ui_text_suhu"
+            ]
+        ]
+    },
+    {
+        "id": "ui_text_jam",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "group": "ui_group_rtc",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "Display Jam",
+        "label": "🕒 Waktu (Jam)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "ui_text_tanggal",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "group": "ui_group_rtc",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "Display Tanggal",
+        "label": "📅 Tanggal",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 720,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ui_text_suhu",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "group": "ui_group_rtc",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "Display Suhu",
+        "label": "🌡️ Suhu RTC",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 710,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "541369fb60170b56",
+        "type": "modbus-response",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "name": "",
+        "registerShowMax": 20,
+        "x": 430,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "67bc2a21c8e6cec5",
+        "type": "mqtt in",
+        "z": "flow_modbus_dashboard2",
+        "name": "Read Modbus",
+        "topic": "v1/system/rs485",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "mqtt_broker_local",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "6240b0b78abd1aad",
+                "aaf8012b61cee662",
+                "7bcb2f3bb40e62fd",
+                "8630b694afd6f167",
+                "a56c3c4088948c68",
+                "49e699ed268f42c2",
+                "7fabfe41d5de9be2",
+                "90d40f85dd09b159",
+                "ae9d838558bdf965",
+                "88c86311f3a0c097",
+                "node_func_parser",
+                "0c2251d465579dae"
+            ]
+        ]
+    },
+    {
+        "id": "6240b0b78abd1aad",
+        "type": "debug",
+        "z": "flow_modbus_dashboard2",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 410,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "aaf8012b61cee662",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30011",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30011",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "feae7ed358ec115c"
+            ]
+        ]
+    },
+    {
+        "id": "feae7ed358ec115c",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30011",
+        "label": "🗓️Register 30011 (Tahun)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "7bcb2f3bb40e62fd",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30012",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30012",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 500,
+        "wires": [
+            [
+                "864d4b8a50a1fc72"
+            ]
+        ]
+    },
+    {
+        "id": "8630b694afd6f167",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30013",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30013",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 560,
+        "wires": [
+            [
+                "a7a15cd2e2cedb44"
+            ]
+        ]
+    },
+    {
+        "id": "a56c3c4088948c68",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30014",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30014",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 620,
+        "wires": [
+            [
+                "fac25f8d3ba28a20"
+            ]
+        ]
+    },
+    {
+        "id": "49e699ed268f42c2",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30015",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30015",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 680,
+        "wires": [
+            [
+                "dac9f4781a02bfaa"
+            ]
+        ]
+    },
+    {
+        "id": "7fabfe41d5de9be2",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30016",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30016",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 740,
+        "wires": [
+            [
+                "c6cd3f3dca40f482"
+            ]
+        ]
+    },
+    {
+        "id": "90d40f85dd09b159",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30017",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30017",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 800,
+        "wires": [
+            [
+                "10fdf059543cb1b7"
+            ]
+        ]
+    },
+    {
+        "id": "ae9d838558bdf965",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30018",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30018",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 860,
+        "wires": [
+            [
+                "ced813e3b1b3a742"
+            ]
+        ]
+    },
+    {
+        "id": "864d4b8a50a1fc72",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30012",
+        "label": "🗓️Register 30012 (Bulan)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a7a15cd2e2cedb44",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30013",
+        "label": "🗓️Register 30013 (Tanggal)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "fac25f8d3ba28a20",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30014",
+        "label": "📜Register 30014 (DoW)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "dac9f4781a02bfaa",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30015",
+        "label": "⏰Register 30015 (Jam)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c6cd3f3dca40f482",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30016",
+        "label": "⏱️Register 30016 (Menit)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "10fdf059543cb1b7",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30017",
+        "label": "⏳Register 30017 (Detik)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "ced813e3b1b3a742",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "Register 30018",
+        "label": "🌡️Register 30018 (🌡️ Temperature ℃)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 660,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "88c86311f3a0c097",
+        "type": "change",
+        "z": "flow_modbus_dashboard2",
+        "name": "Addr 30001",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.register_30001",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "73102f97e8c75865"
+            ]
+        ]
+    },
+    {
+        "id": "73102f97e8c75865",
+        "type": "ui-gauge",
+        "z": "flow_modbus_dashboard2",
+        "name": "Reg. 30001 (Distance) cm",
+        "group": "ui_group_rtc",
+        "order": 2,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-34",
+        "gstyle": "needle",
+        "title": "📏Reg.30001 (Distance)",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "Unit: cm",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "100",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "200",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "300",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 690,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c0bf7965b9bd4d58",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "d": true,
+        "group": "ui_group_rtc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Icon Label-Label",
+        "label": "🚀⏰📅💾✅⌚🎛️⚙️🔄🚨⚡🔌",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "0c2251d465579dae",
+        "type": "function",
+        "z": "flow_modbus_dashboard2",
+        "name": "Format Data RTC & Suhu",
+        "func": "// Mengambil data object dari Modbus\nvar data = msg.payload;\n\n// Pastikan data tidak kosong dan memiliki properti register yang dibutuhkan\nif (data && data.register_30011 !== undefined) {\n    \n    // Pemetaan data berdasarkan nama register object baru\n    var tahun   = data.register_30011; // Nilai: 26 (Tahun 2026)\n    var bulan   = data.register_30012; // Nilai: 6\n    var tanggal = data.register_30013; // Nilai: 16\n    var dow     = data.register_30014; // Nilai: 2 (Day of Week)\n    var jam     = data.register_30015; // Nilai: 20\n    var menit   = data.register_30016; // Nilai: 57\n    var detik   = data.register_30017; // Nilai: 15\n    var suhu    = data.register_30018; // Nilai: 31 (Suhu)\n\n    // Array helper untuk mengubah angka DOW menjadi nama hari\n    // (Asumsi standar PLC: 1 = Senin, 2 = Selasa, dst. Sesuaikan jika berbeda)\n    var daftarHari = [\"\", \"Senin\", \"Selasa\", \"Rabu\", \"Kamis\", \"Jumat\", \"Sabtu\", \"Minggu\"];\n    var namaHari = daftarHari[dow] || \"Hari Kustom\";\n\n    // Fungsi helper untuk menambahkan angka 0 di depan (misal: 6 menjadi 06)\n    function pad(num) {\n        return (num < 10 ? '0' : '') + num;\n    }\n\n    // Format teks Jam, Tanggal + Hari, dan Status Modbus\n    var teksJam = pad(jam) + \":\" + pad(menit) + \":\" + pad(detik);\n    var teksTanggal = namaHari + \", \" + pad(tanggal) + \"/\" + pad(bulan) + \"/20\" + pad(tahun);\n    \n    // Cek status modbus untuk visualisasi indikator\n    var statusIcon = (data.modbus_status === \"success\") ? \"🟢 OK\" : \"🔴 ERROR\";\n\n    // Kirim ke output masing-masing node UI Dashboard 2\n    return [\n        { payload: \"⏰ \" + teksJam },               // Output 1: Ke UI Jam\n        { payload: \"📅 \" + teksTanggal },           // Output 2: Ke UI Tanggal & Hari\n        { payload: \"🌡️ \" + suhu + \" °C\" },            // Output 3: Ke UI Suhu\n        { payload: \"🔗 Modbus: \" + statusIcon }     // Output 4: Ke UI Status Koneksi (Opsional)\n    ];\n}\nreturn null;\n",
+        "outputs": 4,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 980,
+        "wires": [
+            [
+                "0a9ba89d43efeead"
+            ],
+            [
+                "3cdbde4b11834288"
+            ],
+            [
+                "8507966e09aef45e"
+            ],
+            [
+                "11344443ce44e5b6"
+            ]
+        ]
+    },
+    {
+        "id": "0a9ba89d43efeead",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "Display Jam",
+        "label": "🕒 Waktu (Jam)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "3cdbde4b11834288",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "Display Tanggal",
+        "label": "📅 Tanggal",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 700,
+        "y": 980,
+        "wires": []
+    },
+    {
+        "id": "8507966e09aef45e",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "Display Suhu",
+        "label": "🌡️ Suhu RTC",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 690,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "11344443ce44e5b6",
+        "type": "ui-text",
+        "z": "flow_modbus_dashboard2",
+        "group": "ui_group_rtc",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "Display Status",
+        "label": "🔗 Modbus Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 700,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "ui_num_tahun",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input Tahun",
+        "label": "Tahun (2 Digit)",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": 99,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 490,
+        "y": 80,
+        "wires": [
+            [
+                "b1101e2f6f8df555"
+            ]
+        ]
+    },
+    {
+        "id": "ui_num_bulan",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input Bulan",
+        "label": "Bulan (1-12)",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 490,
+        "y": 120,
+        "wires": [
+            [
+                "2f04329c3fd8fb51"
+            ]
+        ]
+    },
+    {
+        "id": "ui_num_tanggal",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input Tanggal",
+        "label": "Tanggal (1-31)",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 1,
+        "max": 31,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "3a5f00769de945fb"
+            ]
+        ]
+    },
+    {
+        "id": "ui_num_dow",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input DoW",
+        "label": "Hari ke- (DoW)",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": 7,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 490,
+        "y": 200,
+        "wires": [
+            [
+                "37306bc841bbda99"
+            ]
+        ]
+    },
+    {
+        "id": "ui_num_jam",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input Jam",
+        "label": "Jam (0-23)",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": 23,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "65daca8bec697f2e"
+            ]
+        ]
+    },
+    {
+        "id": "ui_num_menit",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input Menit",
+        "label": "Menit (0-59)",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": 59,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 490,
+        "y": 280,
+        "wires": [
+            [
+                "030285c5e9e0dd44"
+            ]
+        ]
+    },
+    {
+        "id": "ui_num_detik",
+        "type": "ui-number-input",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Input Detik",
+        "label": "Detik (0-59)",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "topic": "",
+        "topicType": "str",
+        "min": 0,
+        "max": 59,
+        "step": 1,
+        "tooltip": "",
+        "delay": "0",
+        "passthru": true,
+        "sendOnDelay": true,
+        "sendOnBlur": true,
+        "sendOnEnter": true,
+        "className": "",
+        "clearable": false,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "default",
+        "x": 490,
+        "y": 320,
+        "wires": [
+            [
+                "3202dbf1c3283167"
+            ]
+        ]
+    },
+    {
+        "id": "b1101e2f6f8df555",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40011",
+        "func": "// Misal input ini ditujukan khusus untuk register 40011\nmsg.payload = {\n    \"register\": 40011,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 80,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "4beae4460ba51b25",
+        "type": "mqtt out",
+        "z": "flow_modbus_write_rtc",
+        "name": "Kirim Modbus 40011 - 40017",
+        "topic": "v1/system/rs485/write/holding",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_local",
+        "x": 980,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2f04329c3fd8fb51",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40012",
+        "func": "// Misal input ini ditujukan khusus untuk register 40012\nmsg.payload = {\n    \"register\": 40012,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 120,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "3a5f00769de945fb",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40013",
+        "func": "// Misal input ini ditujukan khusus untuk register 40013\nmsg.payload = {\n    \"register\": 40013,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "37306bc841bbda99",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40014",
+        "func": "// Misal input ini ditujukan khusus untuk register 40014\nmsg.payload = {\n    \"register\": 40014,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 200,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "65daca8bec697f2e",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40015",
+        "func": "// Misal input ini ditujukan khusus untuk register 40015\nmsg.payload = {\n    \"register\": 40015,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 240,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "030285c5e9e0dd44",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40016",
+        "func": "// Misal input ini ditujukan khusus untuk register 40016\nmsg.payload = {\n    \"register\": 40016,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 280,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "3202dbf1c3283167",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "40017",
+        "func": "// Misal input ini ditujukan khusus untuk register 40017\nmsg.payload = {\n    \"register\": 40017,\n    \"value\": parseInt(msg.payload)\n};\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 320,
+        "wires": [
+            [
+                "4beae4460ba51b25"
+            ]
+        ]
+    },
+    {
+        "id": "5785be344975de40",
+        "type": "mqtt out",
+        "z": "flow_modbus_write_rtc",
+        "name": "Kirim digital modbus",
+        "topic": "v1/system/rs485/write/boolean",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker_local",
+        "x": 540,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "4017a3f518b9087a",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "d": true,
+        "group": "ui_group_write_rtc",
+        "name": "Reg 10001",
+        "label": "Reg 10001",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "07025debf5b15f3e"
+            ]
+        ]
+    },
+    {
+        "id": "07025debf5b15f3e",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "d": true,
+        "name": "Reg 10001",
+        "func": "msg.payload = { \"register\": 10001, \"value\": msg.payload }; // msg.payload biasanya bernilai true atau false dari button\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "5785be344975de40"
+            ]
+        ]
+    },
+    {
+        "id": "8fc9d02ac679cd38",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Reg 10002 (ON)",
+        "label": "💡Reg 10002 (ON)🟢",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "6df96c386821f0ba"
+            ]
+        ]
+    },
+    {
+        "id": "6df96c386821f0ba",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Reg 10002",
+        "func": "msg.payload = { \"register\": 10002, \"value\": msg.payload }; // msg.payload biasanya bernilai true atau false dari button\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "5785be344975de40"
+            ]
+        ]
+    },
+    {
+        "id": "2fe58e8d728631e3",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Reg 10003",
+        "label": "🚀Reg 10003 (set RTC) 🚀",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "83aecc60152f0c78"
+            ]
+        ]
+    },
+    {
+        "id": "83aecc60152f0c78",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Reg 10003",
+        "func": "msg.payload = { \"register\": 10003, \"value\": msg.payload }; // msg.payload biasanya bernilai true atau false dari button\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "5785be344975de40"
+            ]
+        ]
+    },
+    {
+        "id": "5a5798015d9dcc04",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Reg 10004",
+        "label": "Reg 10004 (get RTC)",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 600,
+        "wires": [
+            [
+                "18c34f3076f5b11c"
+            ]
+        ]
+    },
+    {
+        "id": "18c34f3076f5b11c",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Reg 10004",
+        "func": "msg.payload = { \"register\": 10004, \"value\": msg.payload }; // msg.payload biasanya bernilai true atau false dari button\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "5785be344975de40"
+            ]
+        ]
+    },
+    {
+        "id": "65696c2f480da8d2",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Reg 10005",
+        "label": "Reg 10005",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "1513d750d6612c6b"
+            ]
+        ]
+    },
+    {
+        "id": "1513d750d6612c6b",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Reg 10005",
+        "func": "msg.payload = { \"register\": 10005, \"value\": msg.payload }; // msg.payload biasanya bernilai true atau false dari button\nreturn msg;\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 290,
+        "y": 660,
+        "wires": [
+            [
+                "5785be344975de40"
+            ]
+        ]
+    },
+    {
+        "id": "d70d628b15b5523b",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Reg 10002 (OFF)",
+        "label": "🔌Reg 10002 (OFF)🔴",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "6df96c386821f0ba"
+            ]
+        ]
+    },
+    {
+        "id": "229257fd1a1ca1cc",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Tahun PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\nconst tahun   = now.getFullYear() % 100 ; \n//const bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\n//const tanggal = now.getDate();\n//const doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\n//const jam     = now.getHours();\n//const menit   = now.getMinutes();\n//const detik   = now.getSeconds();\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n    { payload: tahun },   // Output 1\n    //{ payload: bulan },   // Output 2\n   // { payload: tanggal }, // Output 3\n   // { payload: doW },     // Output 4\n   // { payload: jam },     // Output 5\n   // { payload: menit },   // Output 6\n   // { payload: detik }    // Output 7\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 80,
+        "wires": [
+            [
+                "ui_num_tahun"
+            ]
+        ]
+    },
+    {
+        "id": "6bd9f4c5322cbfd3",
+        "type": "ui-button",
+        "z": "flow_modbus_write_rtc",
+        "group": "ui_group_write_rtc",
+        "name": "Baca RTC dari PC",
+        "label": "🖥️➡️📅Baca RTC dari PC🔄",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 110,
+        "y": 200,
+        "wires": [
+            [
+                "229257fd1a1ca1cc",
+                "b7fc5996c1ac1c9a",
+                "9e7e5888cfa39feb",
+                "5469d035601c6104",
+                "5b2b448d8563b20f",
+                "7288fcba0236e1dc",
+                "ee41ecd8957fb2c1"
+            ]
+        ]
+    },
+    {
+        "id": "b7fc5996c1ac1c9a",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Bulan PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\n//const tahun   = now.getFullYear(); \nconst bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\n/*const tanggal = now.getDate();\nconst doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\nconst jam     = now.getHours();\nconst menit   = now.getMinutes();\nconst detik   = now.getSeconds();*/\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n   // { payload: tahun },   // Output 1\n    { payload: bulan },   // Output 2\n  /*  { payload: tanggal }, // Output 3\n    { payload: doW },     // Output 4\n    { payload: jam },     // Output 5\n    { payload: menit },   // Output 6\n    { payload: detik }    // Output 7*/\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "ui_num_bulan"
+            ]
+        ]
+    },
+    {
+        "id": "9e7e5888cfa39feb",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Tanggal PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\n//const tahun   = now.getFullYear(); \n//const bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\nconst tanggal = now.getDate();\n/*const doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\nconst jam     = now.getHours();\nconst menit   = now.getMinutes();\nconst detik   = now.getSeconds();*/\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n    //{ payload: tahun },   // Output 1\n    //{ payload: bulan },   // Output 2\n    { payload: tanggal }, // Output 3\n   /* { payload: doW },     // Output 4\n    { payload: jam },     // Output 5\n    { payload: menit },   // Output 6\n    { payload: detik }    // Output 7*/\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "ui_num_tanggal"
+            ]
+        ]
+    },
+    {
+        "id": "5469d035601c6104",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "DoW PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\n//const tahun   = now.getFullYear(); \n//const bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\n//const tanggal = now.getDate();\nconst doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\n//const jam     = now.getHours();\n//const menit   = now.getMinutes();\n//const detik   = now.getSeconds();\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n   // { payload: tahun },   // Output 1\n   // { payload: bulan },   // Output 2\n   // { payload: tanggal }, // Output 3\n    { payload: doW },     // Output 4\n   // { payload: jam },     // Output 5\n   // { payload: menit },   // Output 6\n   // { payload: detik }    // Output 7\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "ui_num_dow"
+            ]
+        ]
+    },
+    {
+        "id": "5b2b448d8563b20f",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Jam PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\n/*const tahun   = now.getFullYear(); \nconst bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\nconst tanggal = now.getDate();\nconst doW     = now.getDay();  */     // Minggu = 0, Senin = 1, dst.\nconst jam     = now.getHours();\n//const menit   = now.getMinutes();\n//const detik   = now.getSeconds();\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n /*   { payload: tahun },   // Output 1\n    { payload: bulan },   // Output 2\n    { payload: tanggal }, // Output 3\n    { payload: doW },     // Output 4*/\n    { payload: jam },     // Output 5\n   // { payload: menit },   // Output 6\n   // { payload: detik }    // Output 7\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "ui_num_jam"
+            ]
+        ]
+    },
+    {
+        "id": "7288fcba0236e1dc",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Menit PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\n/*const tahun   = now.getFullYear(); \nconst bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\nconst tanggal = now.getDate();\nconst doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\nconst jam     = now.getHours();*/\nconst menit   = now.getMinutes();\n//const detik   = now.getSeconds();\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n  /*  { payload: tahun },   // Output 1\n    { payload: bulan },   // Output 2\n    { payload: tanggal }, // Output 3\n    { payload: doW },     // Output 4\n    { payload: jam },     // Output 5*/\n    { payload: menit },   // Output 6\n   // { payload: detik }    // Output 7\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "ui_num_menit"
+            ]
+        ]
+    },
+    {
+        "id": "ee41ecd8957fb2c1",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "name": "Detik PC",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\n/*const tahun   = now.getFullYear(); \nconst bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\nconst tanggal = now.getDate();\nconst doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\nconst jam     = now.getHours();\nconst menit   = now.getMinutes();*/\nconst detik   = now.getSeconds();\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n   /* { payload: tahun },   // Output 1\n    { payload: bulan },   // Output 2\n    { payload: tanggal }, // Output 3\n    { payload: doW },     // Output 4\n    { payload: jam },     // Output 5\n    { payload: menit },   // Output 6*/\n    { payload: detik }    // Output 7\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "ui_num_detik"
+            ]
+        ]
+    },
+    {
+        "id": "e483f8ebe5010c08",
+        "type": "function",
+        "z": "flow_modbus_write_rtc",
+        "d": true,
+        "name": "function 1",
+        "func": "// Mengambil waktu lokal PC / Server Ubuntu\nconst now = new Date();\n\n// Mengambil komponen waktu satu per satu (Format Angka)\nconst tahun   = now.getFullYear(); \nconst bulan   = now.getMonth() + 1; // Januari = 1, Desember = 12\nconst tanggal = now.getDate();\nconst doW     = now.getDay();       // Minggu = 0, Senin = 1, dst.\nconst jam     = now.getHours();\nconst menit   = now.getMinutes();\nconst detik   = now.getSeconds();\n\n// Mengirimkan masing-masing data ke output yang berbeda\nreturn [\n    { payload: tahun },   // Output 1\n    { payload: bulan },   // Output 2\n    { payload: tanggal }, // Output 3\n    { payload: doW },     // Output 4\n    { payload: jam },     // Output 5\n    { payload: menit },   // Output 6\n    { payload: detik }    // Output 7\n];\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5a827e613410ae5e",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.30.2",
+            "node-red-contrib-modbus": "5.45.2"
+        }
+    }
+]
